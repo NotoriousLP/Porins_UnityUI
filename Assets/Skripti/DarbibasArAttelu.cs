@@ -8,7 +8,7 @@ public class DarbibasArAttelu : MonoBehaviour {
 	public Sprite[] atteluMasivs;
 	public GameObject garums;
 	public GameObject platums;
-
+	public GameObject SteveTeksts, AlexTeksts;
 	public void izkritosais(int skaitlis){
 		if (skaitlis == 0) {
 			mainigaisAttels.GetComponent<Image> ().sprite = atteluMasivs [0];
@@ -17,8 +17,35 @@ public class DarbibasArAttelu : MonoBehaviour {
 		}	
 	}
 		
+
 	public void mainitPlatumu(){
-		float pasreizejaVertiba = garums.GetComponent<Slider> ().value;
-		mainigaisAttels.GetComponent <RectTransform> ().sizeDelta = new Vector2 (1F * pasreizejaVertiba, 0);
+		float pasreizejaVertiba = platums.GetComponent<Slider> ().value;
+		float pasreizejaisGarums = garums.GetComponent<Slider> ().value;
+		mainigaisAttels.GetComponent <RectTransform> ().sizeDelta = new Vector2 (100F * pasreizejaVertiba, 180F*pasreizejaisGarums);
+		}
+	public void mainitGarumu(){
+		float pasreizejaVertiba = platums.GetComponent<Slider> ().value;
+		float pasreizejaisGarums = garums.GetComponent<Slider> ().value;
+		mainigaisAttels.GetComponent <RectTransform> ().sizeDelta = new Vector2 (100F * pasreizejaVertiba, 180F*pasreizejaisGarums);
+		}
+	public GameObject Krekls1, Krekls2, Bikses1, Bikses2, Bikses3, DimandaCepure, Cepure1, Pickaxe, Axe, Kurpes1;
+	public void CepuresAttelosana(bool vertiba){
+		DimandaCepure.SetActive(vertiba);
+		Cepure1.SetActive(vertiba);
 	}
+	public void KrekluAttelosana(bool vertiba){
+		Krekls1.SetActive(vertiba);
+		Krekls2.SetActive(vertiba);
+	}
+	public void BiksesAttelosana(bool vertiba){
+		Bikses1.SetActive(vertiba);
+		Bikses2.SetActive(vertiba);
+		Bikses3.SetActive(vertiba);
+	}
+	public void KurpesUnInstrumentuAttelosana(bool vertiba){
+		Kurpes1.SetActive(vertiba);
+		Pickaxe.SetActive(vertiba);
+		Axe.SetActive(vertiba);
+	}
+
 	}
